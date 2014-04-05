@@ -1,0 +1,157 @@
+?#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+class GraphObject
+{
+private:
+int colour;
+public:
+virtual void SetColour(int newcolour) { colour = newcolour; }
+virtual int GetColour() { return colour; }
+virtual void Draw() {cout<<"Ja sam GraphObject"<<endl;}
+virtual void Translate(int, int) {}
+virtual void Rotate(int, int, int) {}
+};
+class Line : public GraphObject
+{
+public:
+int t1,t2;
+void Draw()
+{cout<<"Ja sam Line"<<endl;}
+};
+class Poly : public virtual GraphObject
+{
+public:
+void Draw()
+{cout<<"Ja sam Poly"<<endl;}
+};
+class Quad : public Poly
+{
+public:
+void Draw()
+{cout<<"Ja sam Quad"<<endl;}
+};
+class ElipseArc : public GraphObject
+{
+public:
+void Draw()
+{cout<<"Ja sam ElipseArc"<<endl;}
+};
+class Circle : public ElipseArc
+{
+public:
+void Draw()
+{cout<<"Ja sam Circle"<<endl;}
+};
+class Text : public virtual GraphObject
+{
+public:
+void Draw()
+{cout<<"Ja sam Text"<<endl;}
+};
+class TextBox : public Quad, public Text
+{
+public:
+void Draw()
+{cout<<"Ja sam TextBox"<<endl;}
+};
+
+class A
+{
+public:
+virtual void func() { cout << "A::func()" << endl; }
+};
+class B : public A
+{
+public:
+virtual void func(){ cout << "B::func()" << endl; }
+};
+class C : public B
+{
+public:
+void func(){ cout << "C::func()" << endl; }
+};
+
+int main(){
+int i; GraphObject *qObject[7];
+
+qObject[0] = new Line;
+qObject[1] = new ElipseArc;
+qObject[2] = new Poly;
+qObject[3] = new Quad;
+qObject[4] = new Circle;
+qObject[5] = new Text;
+qObject[6] = new TextBox;
+for(i = 0; i < 7; i++)
+qObject[i]->Draw();
+
+C objc;
+A *pA = &objc;
+B *pB = &objc;
+pA->func();
+pB->func();
+}
+
+
+
+
+// VERZIJA 2
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+class GraphObject
+{
+private:
+int colour;
+public:
+void SetColour(int newcolour) { colour = newcolour; }
+int GetColour() { return colour; }
+void Draw() {cout<<"ja sam GraphObject";}
+void Translate(int, int) {}
+void Rotate(int, int, int) {}
+};
+class Line : public GraphObject
+{
+int t1,t2;
+void Draw() {
+cout<<"ja sam Line";}
+
+};
+class Poly : public GraphObject
+{
+void Draw() {
+cout<<"ja sam poly";}
+};
+class Quad : public Poly
+{
+void Draw() {
+cout<<"ja sam quad";}
+};
+class ElipseArc : public GraphObject
+{
+void Draw() {
+cout<<"ja sam ElipseArc";}
+};
+class Circle : public ElipseArc
+{
+void Draw() {
+cout<<"ja sam Circle";}
+};
+
+int main(){
+int i;
+GraphObject *qObject[5];
+//…
+qObject[0] = new Line;
+qObject[1] = new ElipseArc;
+qObject[2] = new Poly;
+qObject[3] = new Quad;
+qObject[4] = new Circle;
+
+for(i = 0; i < 5; i++)
+qObject[i]->Draw();
+
+}

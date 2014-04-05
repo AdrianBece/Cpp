@@ -1,0 +1,24 @@
+7. zadatak
+#include "stdafx.h"
+int main()
+{
+int i,n,a[25],*pok;
+int br=0;
+do{
+printf("unesi velicinu niza [n]: ");
+scanf("%d",&n);
+}
+while(n<1 || n>25);
+pok=&a[0];
+for(i=0;i<n;i++)
+{
+printf(" unesi a[%d]: ",i+1);
+scanf("%d", pok+i);
+if(*(pok+i)%3==0) br++;
+}
+printf ("Brojeva djeljivih s 3 ima %d\n", br);
+printf("Brojevi niza su:\n");
+for(i=0;i<n;i++)
+{
+printf("%d \t", *(pok+i));
+}

@@ -1,0 +1,5 @@
+Mogu samo imati elementi kvadratne matrice m x n
+
+GL DIJAGONALA - uvjet: if i==j
+
+SPOREDNA DIJAGONALA if j = n-1-i

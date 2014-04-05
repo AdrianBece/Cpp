@@ -1,0 +1,6 @@
+scanf "%s",&name
+
+-1.10 uredjivanje ispisa u zagradama
+
+fgets(sentence,255.stdin) 
+unos stringa - ime stringa - duljina-1 - stdin uvijek

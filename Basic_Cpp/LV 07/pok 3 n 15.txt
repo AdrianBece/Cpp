@@ -1,0 +1,87 @@
+#include
+
+ 
+"stdafx.h"
+
+void
+
+main()
+
+int a, b, *pok, A[15], p=0, nep=0;
+
+pok=&A[0];
+...
+
+ 
+do 
+
+{
+
+printf (
+"\n Upisi broj elemenata niza: \n");
+
+scanf (
+"%d", &b);
+
+}
+while (1>b || b>30);
+
+ 
+for (a=0;a<b;a++)
+
+{
+
+printf (
+"\n %d. clan = \t",a+1);
+
+scanf (
+"%d", (pok+a));
+
+}
+
+ 
+for (a=0;a<b;a++)
+
+{
+
+ 
+if (*(pok+a)%2==0)
+
+{
+
+p+=1;
+
+}
+
+ 
+else
+
+{
+
+nep+=1;
+
+}
+
+}
+
+printf (
+"\n Parnih brojeva je %d, neparnih je %d. \n", p, nep);
+
+printf (
+"\n Niz je: \n");
+
+ 
+for (a=0;a<b;a++)
+
+{
+
+printf (
+"%d\t", *(pok+a));
+
+}
+
+ 
+
+}
+
+{

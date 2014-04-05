@@ -1,0 +1,82 @@
+LV 01
+
+Klasa = razred
+
+--- Primjer 1 ---
+
+#include <iostream>
+using namespace std;
+
+class Racunalo
+{
+public:
+	int kBmemorije;
+	int brojDiskova;
+	int megahertza;
+};
+
+int main () 
+{
+Racunalo mojPC;
+mojPC.kBmemorije = 64;
+Racualo *pokazivac = &mojPC; // pokazivac na objekt
+pokazivac->megahertza=2000; // pristup preko pokazivaca
+return 0;
+}
+
+--- Primjer 2 ---
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+class kompleksni
+{
+private: // ne moze se pristupiti iz main funkcije,samo preko funkcije iz klase
+	float Re,Im;
+public: // moze se pristupiti iz main funkcije
+	kompleksni(float x=0, float y=0){Re=x;Im=y;} //kada se metoda zove kao i klasa onda je to konstruktor
+	float modul(); // obicna metoda
+};
+
+// definiranje metode van klase (moglo se i kod deklaracije obicne metode)
+float kompleksni::modul() 
+{
+	return sqrt(Re*Re + Im*Im);
+}
+
+int main () 
+{
+	kompleksni K1(5,4);
+	cout << K1.modul() << endl << endl;
+	return 0;
+}
+
+--- Primjer 3 ---
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+class kompleksni
+{
+private: // ne moze se pristupiti iz main funkcije,samo preko funkcije iz klase
+	float Re,Im;
+public: // moze se pristupiti iz main funkcije
+	kompleksni(float x=0, float y=0){Re=x;Im=y;}
+	friend float modul (kompleksni &a);
+	float modul(); // obicna metoda
+};
+
+// definiranje metode van klase (moglo se i kod deklaracije obicne metode)
+float modul(kompleksni &a) // ako obicna funkcija zeli pristupiti èlanovima private klase, moramo funkciju deklarirati kao prijatelj funkcije (koristimo reference &a)
+{
+	return sqrt(a.Re*a.Re + a.Im*a.Im);
+}
+
+int main () 
+{
+	kompleksni K1(5,4);
+	cout << modul(K1) << endl << endl; //poziva se kao obicna funkcija, a predaje se objekt
+	return 0;
+}

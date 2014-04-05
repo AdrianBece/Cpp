@@ -1,0 +1,103 @@
+_____________
+
+NASLJEÐIVANJE
+_____________
+
+#include<iostream>
+using namespace std;
+
+class GraphObject
+{
+private:
+int colour;
+public:
+void SetColour(int newcolour) { colour = newcolour; }
+int GetColour() { return colour; }
+void Draw() {cout <<"Pozvan draw"<<endl;}
+void Translate(int, int) {}
+GraphObject(){cout<<"Konstruktor G.O."<<endl;}
+~GraphObject(){cout<<"Destruktor G.O."<<endl;}
+void Rotate(int, int, int) {}
+};
+
+class Poly:public GraphObject
+{
+	public:
+	Poly(){cout<<"Konstruktor mnogokuta"<<endl;}
+	~Poly(){cout<<"Destruktor mnogokuta"<<endl;}
+};
+
+class Quad:public Poly
+{
+private:
+	int stranica;
+
+	public:
+	Quad(int a):stranica(a){cout<<"Konstruktor Quad"<<endl;}
+	~Quad(){cout<<"Destruktor Quad"<<endl;}
+};
+
+int main ()
+{
+	Quad K1(3);
+	K1.Draw();
+	return 0;
+}
+
+
+using Vector::Getx() - ako zelimo koristiti Getx iz bazne klase koju Vector nasljeðuje, a private je
+
+
+____________
+
+POLIMORFIZAM
+____________
+
+class GraphObject
+{
+private:
+int colour;
+public:
+void SetColour(int newcolour) { colour = newcolour; }
+int GetColour() { return colour; }
+virtual void Draw() {cout <<"Pozvan draw"<<endl;}
+void Translate(int, int) {}
+GraphObject(){cout<<"Konstruktor G.O."<<endl;}
+virtual ~GraphObject(){cout<<"Destruktor G.O."<<endl;}
+void Rotate(int, int, int) {}
+};
+
+class Poly:public GraphObject
+{
+	public:
+	Poly(){cout<<"Konstruktor mnogokuta"<<endl;}
+	~Poly(){cout<<"Destruktor mnogokuta"<<endl;}
+};
+
+class Quad:public Poly
+{
+private:
+	int stranica;
+
+	public:
+	void Draw() {cout <<"Pozvan draw iz Quad"<<endl;}
+	Quad(int a):stranica(a){cout<<"Konstruktor Quad"<<endl;}
+	~Quad(){cout<<"Destruktor Quad"<<endl;}
+};
+
+int main ()
+{
+	Quad K1(3);
+	K1.Draw();
+	GraphObject *p1=&K1; //pokazivac na graphObject
+	p1->Draw(); // poziva draw iz graphObject (ne pristupa draw iz quada) - ako zelimo iz Quada onda u baznoj Draw staviti virtual
+	return 0;
+}
+
+
+virtualna metoda mora imati i virtualni destruktor
+
+Èisti virtualni èlan (metoda) (=0) klasa postane abstraktna, ne moze se napraviti objekt nego pruza suèelje
+
+
+

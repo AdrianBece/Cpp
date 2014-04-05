@@ -1,0 +1,98 @@
+#include<stdio.h>
+
+#include<string.h>
+
+int main()
+
+{int i=0,n=0,p=0;
+
+float max;
+...
+
+struct datum
+
+{
+
+int dan;
+
+int mjesec;
+
+int godina;
+
+};
+
+struct ucenik
+
+{
+
+char ime[15];
+
+char prezime[15];
+
+int maticni;
+
+float prosjek;
+
+struct datum rodjendan;
+
+} ucenik[40];
+
+do{
+
+printf("upisi broj ucenika(max.40):");
+
+scanf("%d",&n);
+
+}while(n<1||n>40);
+
+for(i=0;i<n;i++)
+
+{
+
+ printf("upisi ime %d. ucenika ",i+1);
+
+ scanf("%s",&ucenik[i].ime);
+
+ printf("upisi prezime %d. ucenika ",i+1);
+
+ scanf("%s",&ucenik[i].prezime);
+
+ printf("upisi mat. broj %d. ucenika ",i+1);
+
+ scanf("%d",&ucenik[i].maticni);
+
+ printf("upisi prosjek %d. ucenika ",i+1);
+
+ scanf("%f",&ucenik[i].prosjek);
+
+ printf("upisi dan rodenja %d. ucenika ",i+1);
+
+ scanf("%d",&ucenik[i].rodjendan.dan);
+
+ printf("upisi mjesec rodenja %d. ucenika ",i+1);
+
+ scanf("%d",&ucenik[i].rodjendan.mjesec);
+
+ printf("upisi godina rodenja %d. ucenika ",i+1);
+
+ scanf("%d",&ucenik[i].rodjendan.godina);
+
+}
+
+max=ucenik[0].prosjek;
+
+for(i=1;i<n;i++)
+
+{
+
+ if(max<ucenik[i].prosjek)
+
+{max=ucenik[i].prosjek;
+
+p=i;}
+
+}
+
+printf("\nucenik sanajvecim prosjekom je:\n%d\t%s\t%s\t%d.%d.%d sa prosjekom od:%.2f",ucenik[p].maticni,ucenik[p].prezime,ucenik[p].ime,ucenik[p].rodjendan.dan,ucenik[p].rodjendan.mjesec,ucenik[p].rodjendan.godina,ucenik[p].prosjek);
+
+}

@@ -1,0 +1,16 @@
+gets(string); - bolji unos od scanfa - za string
+getch(string); - za 1 znak
+
+printf("%s",string); - ispis
+printf("%s",string+1); - preskace slovo
+printf("%c",string[1]) - ispis slova na mjestu ...
+printf("%d",string[1]) - ispis ASCII
+
+strlen(string) - vraca duljinu stringa
+duljina=strlen(string);
+
+putchar(string) ispis stringa bez formata
+
+
+
+Ivo mateljan - programiranje dobar uð

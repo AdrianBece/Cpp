@@ -1,0 +1,35 @@
+char c[80];
+cin.get(c, sizeof(c));
+
+ili
+
+cin.getline (c,sizeof(c)); // KORISTI OVO!!! :D Zato sto cin.get zavrsava sa enterom i dalje se nece moci unositi, zavrsi program
+
+
+
+--- PRIMJER 1 ---
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main ()
+{
+	ofstream izlazna ("oop.txt"); // pisanje u datoteku
+	izlazna << "1. red teksta. " << endl;
+	izlazna << "2. red teksta. " << endl;
+	izlazna.close();
+	char c;
+	ifstream ulazna ("oop.txt"); //citanje iz datoteke
+	// ulazna >> c; - za 1. slovo
+	ulazna.getline(c, 255); //ucita 1. red
+	cout << c;
+	ulazna.close();
+	return 0;
+}
+
+--- PRIMJER 2 --- ako zelim unjeti svoje ime datoteke (radi na 2010 verziji)
+string ime;
+cin >> ime;
+ofstream izlazna (ime)

@@ -1,0 +1,57 @@
+#include"stdafx.h"
+#include<stdlib.h>
+#include<string.h>
+int n,i;
+
+struct student{
+char ime [15];
+char prezime[15];
+int godina;
+char smjer[20];
+float prosjek;
+int maticni;
+}
+student[100];
+int main()
+{
+do
+{
+printf("Upisite broj studenata:");
+scanf("%d",&n);
+if(n<1 || n>100)
+printf("\nBroj mora bit 2<m<100\n");
+}
+while (n<1 || n>100);
+
+for(i=0;i<n;i++)
+{
+
+printf("Upisite ime %d. studenta:",i+1);
+scanf("%s",&student[i].ime);
+printf("\nUpisite prezime %d. studenta:",i+1);
+scanf("%s",&student[i].prezime);
+printf("\nUpisite godinu studiranja %d. studenta:",i+1);
+scanf("%d",&student[i].godina);
+printf("\nUpisite smjer studiranja %d. studenta:",i+1);
+scanf("%s",&student[i].smjer);
+printf("\nUpisite prosjek %d. studenta:",i+1);
+scanf("%f",&student[i].prosjek);
+printf("\nUpisite maticni %d. studenta:",i+1);
+scanf("%d",&student[i].maticni);
+printf("\n\n");
+}
+printf("\n\nUpisani su studenti:\n");
+for(i=0;i<n;i++)
+{
+printf("Ime:%s\n",student[i].ime);
+printf("Prezime:%s\n",student[i].prezime);
+printf("Godina studiranja:%d\n",student[i].godina);
+printf("Smjer:%s\n",student[i].smjer);
+printf("Ime:%.2f\n",student[i].prosjek);
+printf("Ime:%d\n",student[i].maticni);
+printf("\n");
+}
+system("PAUSE");
+
+return 0;
+}

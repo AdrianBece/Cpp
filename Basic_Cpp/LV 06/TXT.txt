@@ -1,0 +1,54 @@
+---POKAZIVAC---
+
+int a, *pok;
+
+pok=&a;
+
+printf("%d",pok) -adresa od a
+		%d, *pok vrijednost na koju pokazuje pok
+		%d, &pok, adresa pokazivaca
+
+
+
+--- SIZEOF ---
+
+koliko mem prostora zauzima
+
+sizeof(varijabla)
+
+--- NIZ ---
+
+ime stringa je pokazivac na 0. element niza
+
+---UNOS I PRISTUP POMOCU POKAZIVAcA ---
+
+int i,n,V[10],*pok
+float s=0,a;
+pok=V;
+do{
+printf("elementi niza velicina: ");
+while (n<1 || n>10);
+printf ("el niza:");
+for(i=0;i<n;i++)
+{
+scanf("%d",pok+i);
+s++=*(pok+i);
+}
+a=s/n;
+printf("A.sr je %.2f",a);
+
+---POK I FUNKCIJE---
+
+// dvostruka vrijednost
+float duplo(float *k)
+{
+return 2*(*k)
+}
+
+void main{
+float x,*pok;
+pok=&x;
+printf("broj:");
+scanf("%f",pok);
+printf(" 2 * %.2f = %.2f",*pok,*duplo(&x));
+ 

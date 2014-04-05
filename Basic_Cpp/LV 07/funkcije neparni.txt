@@ -1,0 +1,41 @@
+#include "stdafx.h"
+
+int n,m,i,j,brojac=0,A[5][5];
+void UPIS ()
+{
+for (i=0;i<n;i++)
+for (j=0;j<m;j++){
+printf("\n unesi element A[%d] [%d] = \n ",i,j);
+scanf ("%d",&A[i][j]);
+if (A[i][j]%2!=0)
+brojac=brojac+1;
+}
+}
+void ISPIS ()
+{
+for (i=0;i<n;i++)
+{
+printf ("\n");
+for (j=0;j<m;j++)
+printf ("\t %d",A[i][j]);
+}
+}
+void main()
+{
+do
+{
+printf("\n Upisi broj redaka n");
+scanf("%d",&n);
+}
+while (n<2||n>5);
+do
+{
+printf("\n Upisi broj stupaca m");
+scanf("%d",&m);
+}
+while (m<2||m>5);
+UPIS ();
+ISPIS ();
+printf ("\n broj neparnih je %d \n ", brojac);
+
+}

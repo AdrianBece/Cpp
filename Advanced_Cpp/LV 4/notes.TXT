@@ -1,0 +1,65 @@
+Preopretereæenje funkcije
+____________________________
+#include <iostream>
+using namespace std;
+int less (int a, int b)
+{
+	return a<b?a:b; // ? je else
+}
+
+float less (float a, float b)
+{
+	return a<b?a:b; // ? je else
+}
+
+int main()
+{
+	cout<<less(4,5)<<endl;
+	cout<<less(7.2345F,7.457F)<<endl;// F za konverziju u float
+	return 0;
+}
+
+
+Isto samo sa predprocesorskim naredbama
+_______________________________________
+
+#define less (a,b) ((a)<(b) ? (a):(b)) // makro, ne koristiti ima problema
+
+
+
+Predložak funkcije
+__________________
+
+kljuæna rijeè template <class T>
+class je uvedeno ime (typename), T je tip
+moguæe ih je preopteretiti (po broju argumenata)
+
+
+#include <iostream>
+using namespace std;
+
+template <class Tip>
+Tip less (Tip a, Tip b)
+{
+	return a<b?a:b;
+}
+
+int main()
+{
+	cout<<less(4,5)<<endl;
+	cout<<less(7.2345F,7.457F)<<endl;// F za konverziju u float
+	cout<<less ('z','b')<<endl;
+	return 0;
+}
+
+Predložak klase
+_______________
+
+
+template <class T>
+class Lista
+{
+};
+
+class Zivotinja
+{};

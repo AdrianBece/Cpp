@@ -1,0 +1,30 @@
+#include "stdafx.h"
+
+int main()
+{
+int i,n,*pok,A[40],brojacParnih=0,brojacNepranih=0;
+pok=&A[0];
+do
+{
+printf("\n Upisi broj elemenata niza:");
+scanf("%d",&n);
+}
+while(1>n||n>40);
+for(i=0;i<n;i++)
+{
+printf("\n %d. clan niza=",i+1);
+scanf("%d",(pok+i));
+}
+for(i=0;i<n;i++)
+{
+if(*(pok+i)%2==0)
+{
+brojacParnih=brojacParnih + (*(pok+i));
+}
+else
+{
+brojacNepranih=brojacNepranih + (*(pok+i));
+}
+}
+printf("\n Zbroj parnih brojeva je %d,a zbroj neparnih %d.\n",brojacParnih,brojacNepranih);
+}

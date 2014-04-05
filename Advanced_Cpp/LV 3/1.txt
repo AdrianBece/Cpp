@@ -1,0 +1,53 @@
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+class Vector{
+private:
+float ax, ay;
+public:
+Vector(float a=0,float b=0) : ax(a), ay(b) {}
+void Setxy(float x, float y) {ax = x; ay = y;}
+float Getx() { return ax; }
+float Gety() {return ay; }
+};
+
+class Cplx : private Vector{
+public:
+Cplx(float a=0, float b=0): Vector(a,b) {}
+using Vector::Setxy;
+using Vector::Getx;
+using Vector::Gety;
+};
+
+class Cplx2 : public Vector{
+public:
+Cplx2(float a=0, float b=0) : Vector(a,b) {}
+void Multiply(Cplx &c);
+};
+
+class Cplx3 : protected Vector{
+public:
+
+using Vector::Getx;
+using Vector::Gety;
+using Vector::Setxy;
+
+Cplx3(float a=0, float b=0):Vector(a,b) {}
+
+};
+
+int main()
+{
+Cplx A1;
+Cplx3 A2;
+Cplx2 A3;
+
+A1.Setxy(1,2);
+A2.Setxy(2,3);
+A3.Setxy(3,4);
+
+cout << A1.Getx() << A1.Gety() << endl;
+cout << A2.Getx() << A2.Gety() << endl;
+cout << A3.Getx() << A3.Gety() << endl;

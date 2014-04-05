@@ -1,0 +1,35 @@
+#include "stdafx.h"
+
+int main()
+{
+struct komp
+{
+float re;
+float img;
+} a,b,c,d,e;
+
+printf("unesi prvi kompleksni broj:\n ");
+printf("Re: ");
+scanf("%f",&a.re);
+printf("Img: ");
+scanf("%f",&a.img);
+
+printf("\nunesi drugi kompleksni broj: \n");
+printf("Re: ");
+scanf("%f",&b.re);
+printf("Img: ");
+scanf("%f",&b.img);
+
+c.re=a.re+b.re;
+c.img=a.img+b.img;
+
+d.re=a.re-b.re;
+d.img=a.img-b.img;
+
+e.re=a.re*b.re-a.img*b.img;
+e.img=a.re*b.img+a.img*b.re;
+
+printf("\nzbroj: %.2f%+.2fi\n razika: %.2f%+.2fi\n umnozak: %.2f%+.2fi\n",c.re,c.img,d.re,d.img,e.re,e.img);
+
+return 0;
+}
